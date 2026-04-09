@@ -37,7 +37,7 @@ function App() {
 
     try {
       const { data } = await axios.get<SurfCondition[]>(
-        `http://localhost:3333/surf/conditions?lat=${lat}&lng=${lng}`,
+        `https://api-surfe.onrender.com/surf/conditions?lat=${lat}&lng=${lng}`,
       );
       setDays(groupByDay(data));
     } catch (err) {
