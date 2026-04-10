@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# 🏄 Surf Conditions — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interface web para consultar condições de surfe em qualquer praia do mundo, com previsão de 7 dias, score por hora e seleção por mapa.
 
-Currently, two official plugins are available:
+## 🔗 Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **App em produção:** https://frontend-surfe.vercel.app
+- **Repositório da API:** https://github.com/seu-usuario/surf-api
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tecnologias
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Axios
+- Leaflet + React Leaflet
+- Lucide React (ícones)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📁 Estrutura do projeto
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  App.tsx                     # Componente principal
+  types/
+    surf.ts                   # Interfaces TypeScript
+  services/
+    geocoding.ts              # Integração com Nominatim (busca por nome)
+  utils/
+    groupByDay.ts             # Agrupamento e resumo por dia
+  components/
+    DayCard.tsx               # Card com resumo do dia
+    DayModal.tsx              # Modal com detalhes hora a hora
+    MapPicker.tsx             # Mapa interativo para seleção de localização
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ✨ Funcionalidades
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 🔍 **Busca por nome** — pesquise qualquer praia do mundo pelo nome
+- 🗺️ **Seleção no mapa** — clique diretamente no mapa para escolher a localização
+- 📅 **Previsão de 7 dias** — cards com resumo diário de condições
+- 🕐 **Detalhes por hora** — modal com score e dados hora a hora
+- 🏆 **Score de 1 a 10** — indica a qualidade das condições para surfe
+
+---
+
+## ⚙️ Como rodar localmente
+
+**1. Clone o repositório:**
+
+```bash
+git clone https://github.com/seu-usuario/surf-frontend.git
+cd surf-frontend
 ```
+
+**2. Instale as dependências:**
+
+```bash
+npm install
+```
+
+**3. Rode em modo desenvolvimento:**
+
+```bash
+npm run dev
+```
+
+O app vai estar disponível em `http://localhost:5173`.
+
+> ⚠️ Para rodar localmente, a [API](https://github.com/seu-usuario/surf-api) também precisa estar rodando em `http://localhost:3333`. Lembre de atualizar a URL no `App.tsx`.
+
+---
+
+## 🌐 Serviços externos utilizados
+
+- [Nominatim (OpenStreetMap)](https://nominatim.openstreetmap.org/) — conversão de endereço para coordenadas (gratuito, sem chave de API)
+- [OpenStreetMap](https://www.openstreetmap.org/) — tiles do mapa interativo (gratuito)
+- [Surf Conditions API](https://api-surfe.onrender.com) — dados de ondas e scores
