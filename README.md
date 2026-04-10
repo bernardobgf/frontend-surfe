@@ -73,7 +73,7 @@ npm run dev
 
 O app vai estar disponível em `http://localhost:5173`.
 
-> ⚠️ Para rodar localmente, a [API](https://github.com/seu-usuario/surf-api) também precisa estar rodando em `http://localhost:3333`. Lembre de atualizar a URL no `App.tsx`.
+> ⚠️ Para rodar localmente, a [API](https://github.com/bernardobgf/surf-api) também precisa estar rodando em `http://localhost:3333`. Lembre de atualizar a URL no `App.tsx`.
 
 ---
 
